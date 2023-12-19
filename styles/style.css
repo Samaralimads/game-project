@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  font-family: "Permanent Marker", cursive;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 70px;
+  color: white;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+#gameboard {
+  width: 450px;
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.box {
+  height: 148px;
+  width: 148px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 120px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+.box:nth-child(3n) {
+  border-right: none;
+}
+.box:nth-child(6) ~ .box {
+  border-bottom: none;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-color: white;
+  font-size: 18px;
+  /* transition: 200ms transform; */
+  font-weight: 600;
+}
