@@ -15,19 +15,27 @@
   <body>
     <h1 id="gameName">Tic-Tac-Toe</h1>
     <div id="players" class="players">
+      <h2 id="playerText">Choose a player:</h2>
       <button id="playerX">Player (X)</button>
       <button id="playerO">Player (O)</button>
     </div>
     <div id="gameboard">
-      <div class="box" id="0">O</div>
+      <div class="box" id="0"></div>
       <div class="box" id="1"></div>
       <div class="box" id="2"></div>
-      <div class="box" id="3">X</div>
-      <div class="box" id="4">O</div>
+      <div class="box" id="3"></div>
+      <div class="box" id="4"></div>
       <div class="box" id="5"></div>
       <div class="box" id="6"></div>
       <div class="box" id="7"></div>
       <div class="box" id="8"></div>
+    </div>
+
+    <div id="customModal" class="modal">
+      <div class="modal-content">
+        <p id="modalMessage"></p>
+        <button id="restartButton">Restart</button>
+      </div>
     </div>
 
     <script src="src/index.js"></script>
