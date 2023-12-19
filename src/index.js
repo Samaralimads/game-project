@@ -91,6 +91,10 @@ const checkForTie = () => {
 
 const gameOver = (message) => {
   console.log("Final Board State:", space);
+  document
+    .querySelectorAll(".box")
+    .forEach((element) => element.removeEventListener("click", boxClicked));
+
   setTimeout(() => {
     showModal(message);
   }, 150); // Adjust the delay time
