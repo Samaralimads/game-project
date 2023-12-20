@@ -1,9 +1,9 @@
-let buttonPlayerX = document.getElementById("playerX");
-let buttonPlayerO = document.getElementById("playerO");
-let boxes = Array.from(document.getElementsByClassName("box"));
+const buttonPlayerX = document.getElementById("playerX");
+const buttonPlayerO = document.getElementById("playerO");
+const boxes = Array.from(document.getElementsByClassName("box"));
 const winnerAudio = document.getElementById("winnerAudio");
 const tieAudio = document.getElementById("tieAudio");
-const audioPlayer = document.getElementById("penWriting");
+const penWritingAudio = document.getElementById("penWriting");
 const buttonClickAudio = document.getElementById("buttonClickAudio");
 
 const playerX = "X";
@@ -64,7 +64,7 @@ function boxClicked(event) {
 }
 
 function playAudio() {
-  audioPlayer.play();
+  penWritingAudio.play();
 }
 
 const togglePlayer = () => {
