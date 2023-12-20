@@ -1,6 +1,10 @@
 let buttonPlayerX = document.getElementById("playerX");
 let buttonPlayerO = document.getElementById("playerO");
 let boxes = Array.from(document.getElementsByClassName("box"));
+const winnerAudio = document.getElementById("winnerAudio");
+const tieAudio = document.getElementById("tieAudio");
+const audioPlayer = document.getElementById("penWriting");
+const buttonClickAudio = document.getElementById("buttonClickAudio");
 
 const playerX = "X";
 const playerO = "O";
@@ -11,13 +15,19 @@ const choosePlayer = () => {
   buttonPlayerX.addEventListener("click", function () {
     currentPlayer = playerX;
     disablePlayerButtons();
+    playButtonClickAudio();
   });
 
   buttonPlayerO.addEventListener("click", function () {
     currentPlayer = playerO;
     disablePlayerButtons();
+    playButtonClickAudio();
   });
 };
+
+function playButtonClickAudio() {
+  buttonClickAudio.play();
+}
 
 const disablePlayerButtons = () => {
   buttonPlayerX.disabled = true;
@@ -42,6 +52,7 @@ function boxClicked(event) {
     space[id] = currentPlayer;
     event.target.innerText = currentPlayer;
     event.target.removeEventListener("click", boxClicked);
+    playAudio();
     if (checkForWinner()) {
       gameOver("Player " + currentPlayer + " is the winner!");
     } else if (checkForTie()) {
@@ -50,6 +61,10 @@ function boxClicked(event) {
       togglePlayer();
     }
   }
+}
+
+function playAudio() {
+  audioPlayer.play();
 }
 
 const togglePlayer = () => {
@@ -96,8 +111,21 @@ const gameOver = (message) => {
     .forEach((element) => element.removeEventListener("click", boxClicked));
 
   setTimeout(() => {
-    showModal(message);
-  }, 150); // Adjust the delay time
+    if (checkForWinner()) {
+      playWinnerAudio();
+      showModal(message);
+    } else if (checkForTie()) {
+      playTieAudio();
+      showModal("It's a tie!");
+    }
+  }, 150);
+};
+
+const playWinnerAudio = () => {
+  winnerAudio.play();
+};
+const playTieAudio = () => {
+  tieAudio.play();
 };
 
 const showModal = (message) => {
