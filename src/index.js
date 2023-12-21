@@ -6,6 +6,7 @@ const tieAudio = document.getElementById("tieAudio");
 const penWritingAudio = document.getElementById("penWriting");
 const buttonClickAudio = document.getElementById("buttonClickAudio");
 const currentPlayerText = document.getElementById("currentPlayerText");
+const currentPlayerTurn = document.getElementById("currentPlayerTurn");
 
 const playerX = "X";
 const playerO = "O";
@@ -55,6 +56,7 @@ function boxClicked(event) {
 
     event.target.removeEventListener("click", boxClicked);
     playAudio();
+
     if (checkForWinner()) {
       gameOver("Player " + currentPlayer + " is the winner!");
     } else if (checkForTie()) {
@@ -96,6 +98,10 @@ const checkForWinner = () => {
   for (const pattern of winPatterns) {
     const [a, b, c] = pattern;
     if (space[a] && space[a] === space[b] && space[a] === space[c]) {
+      pattern.forEach((index) => {
+        boxes[index].classList.add("pulse");
+      });
+
       return true;
     }
   }
@@ -115,6 +121,7 @@ const gameOver = (message) => {
   document
     .querySelectorAll(".box")
     .forEach((element) => element.removeEventListener("click", boxClicked));
+
   currentPlayerTurn.style.display = "none";
   setTimeout(() => {
     if (checkForWinner()) {
@@ -152,10 +159,19 @@ const resetGame = () => {
   space = Array(9).fill("");
   boxes.forEach((box) => {
     box.innerText = "";
+    box.classList.remove("pulse");
+
     box.addEventListener("click", boxClicked);
   });
 
   enablePlayerButtons();
 };
+
+// pattern.forEach((index) => {
+//   boxes[index].classList.add("pulse");
+// });
+
+// console.log(pattern);
+
 choosePlayer();
 startGame();

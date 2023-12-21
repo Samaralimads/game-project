@@ -128,3 +128,16 @@ button {
   font-size: 18px;
   color: white;
 }
+
+.pulse {
+  animation: pulse 0.5s ease-in alternate infinite;
+}
+
+@keyframes pulse {
+  0% {
+    font-size: 120px;
+  }
+  100% {
+    font-size: 170px;
+  }
+}
