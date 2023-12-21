@@ -112,6 +112,7 @@ button {
 
 .modal-content {
   background-color: #fefefe;
+  color: black;
   position: sticky;
   top: 50%;
   left: 50%;
@@ -139,5 +140,32 @@ button {
   }
   100% {
     font-size: 170px;
+  }
+}
+
+@media (width < 760px) {
+  .drop-main {
+    font-size: 50px;
+    margin-top: 10px;
+  }
+
+  .modal-content {
+    top: 40%;
+    left: 40%;
+  }
+  .box {
+    font-size: 100px;
+  }
+  #gameboard {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  @keyframes pulse {
+    0% {
+      font-size: 100px;
+    }
+    100% {
+      font-size: 130px;
+    }
   }
 }
