@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Tac-Toe</title>
+    <link rel="icon" type="image/x-icon" href="/img/tic-tac-toe.ico" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +26,7 @@
       <button id="playerX">Player (X)</button>
       <button id="playerO">Player (O)</button>
     </div>
+    <div id="currentPlayerTurn" class="current-player-turn"></div>
     <div id="gameboard">
       <div class="box" id="0"></div>
       <div class="box" id="1"></div>
@@ -44,10 +46,10 @@
       </div>
     </div>
 
-    <audio id="winnerAudio" src="/audio/winner.mp3"></audio>
-    <audio id="penWriting" src="/audio/writing.mp3" preload="auto"></audio>
-    <audio id="tieAudio" src="/audio/fail.mp3" preload="auto"></audio>
-    <audio id="buttonClickAudio" src="/audio/Click.mp3" preload="auto"></audio>
+    <audio id="winnerAudio" src="./audio/winner.mp3"></audio>
+    <audio id="penWriting" src="./audio/writing.mp3"></audio>
+    <audio id="tieAudio" src="./audio/fail.mp3"></audio>
+    <audio id="buttonClickAudio" src="./audio/Click.mp3"></audio>
 
     <script src="src/index.js"></script>
   </body>

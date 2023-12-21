@@ -5,6 +5,7 @@ const winnerAudio = document.getElementById("winnerAudio");
 const tieAudio = document.getElementById("tieAudio");
 const penWritingAudio = document.getElementById("penWriting");
 const buttonClickAudio = document.getElementById("buttonClickAudio");
+const currentPlayerText = document.getElementById("currentPlayerText");
 
 const playerX = "X";
 const playerO = "O";
@@ -51,6 +52,7 @@ function boxClicked(event) {
   if (!space[id]) {
     space[id] = currentPlayer;
     event.target.innerText = currentPlayer;
+
     event.target.removeEventListener("click", boxClicked);
     playAudio();
     if (checkForWinner()) {
@@ -64,14 +66,18 @@ function boxClicked(event) {
 }
 
 function playAudio() {
+  penWritingAudio.currentTime = 0;
   penWritingAudio.play();
 }
 
 const togglePlayer = () => {
+  currentPlayerTurn.style.display = "initial";
   if (currentPlayer === playerX) {
     currentPlayer = playerO;
+    currentPlayerTurn.textContent = "It's player O's turn";
   } else {
     currentPlayer = playerX;
+    currentPlayerTurn.textContent = "It's player X's turn";
   }
 };
 
@@ -109,7 +115,7 @@ const gameOver = (message) => {
   document
     .querySelectorAll(".box")
     .forEach((element) => element.removeEventListener("click", boxClicked));
-
+  currentPlayerTurn.style.display = "none";
   setTimeout(() => {
     if (checkForWinner()) {
       playWinnerAudio();
@@ -151,6 +157,5 @@ const resetGame = () => {
 
   enablePlayerButtons();
 };
-
 choosePlayer();
 startGame();
