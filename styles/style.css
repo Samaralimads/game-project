@@ -168,4 +168,7 @@ button {
       font-size: 130px;
     }
   }
+  button {
+    color: black;
+  }
 }
